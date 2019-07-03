@@ -1,7 +1,7 @@
 
-# Javascript Basics
+## Javascript Foundations
 
-I've created this document to bring together what I believe to be the most important concepts for developing a foundational knowledge of JavaScript. It is not an exhaustive list as my goal is for you to be able to read through it in roughly 10 - 15 minutes. 
+I've created this document to bring together what I believe to be the most important concepts for developing a foundational knowledge of JavaScript. It is not an exhaustive guide as my goal is for you to be able to read through it in under 10 minutes, and it acts something like a contents page. 
 
 So let's dig in.
 
@@ -9,67 +9,99 @@ So let's dig in.
 JavaScript is a programming language that can run both in a browser and (more recently) on a server. It was written to run in the Netscape browser in 1995. JavaScript can update and change our HTML and CSS, calculate and manipulate data and request and receive data from servers or other websites. 
 
 ### Data types
-Data types are a concept that is common across all programming languages. In JavaScript there are 7 primitive (basic) data types:
+Data types are a concept that are common across all programming languages. In JavaScript there are 7 primitive data types:
 
-#### Strings
+#### 1. Strings
 
 A string is a sequence of characters. A string literal is a sequence surrounded by either single or double quotes.
 
-    > ‘Stringy string string’ 
-    > “How’s ya bloody string mate”
+    ‘Stringy string string’ 
+    “How’s ya bloody string mate”
 
-A string literal can also be so-called template literals (introduced into JS in ES6).
+A string literal can also be so-called template literals (introduced into JS in ES6) by using backticks.
 
-    > `Template literal example`
+    `Template literal example`
 
-#### Numbers
+#### 2. Numbers
 
 A number can be either a positive or negative integer or a positive or negative decimal (floating point number).
 
-    > 1
-    > -13
-    > 7.849
-    > -934.379
+    1
+    -13
+    7.849
+    -934.379
 
-#### Booleans
-A boolean represents a value of true or false.
+#### 3. BigInt
+Numbers can only get us so far. The largest number that JavaScript can reliably represent is 2^53. Anything larger than this we should handle with BigInt. Even so, BigInts can only be represented with arbitrary precision, meaning its precision is limited to the amount of memory that is available to our JavaScript code in our computer. 
+A BigInt is created by adding an 'n' to the end of the integer.
 
-    > true
-    > false
+    > 8923494n
 
-#### Null
-`null` is just a special value which represents “nothing”, “empty” or “value unknown”.
+#### 4. Booleans
+A boolean represents a value of `true` or `false`.
 
-#### Undefined
+#### 5. Null
+`null` is just a special value which represents “nothing” or “empty”.
+
+#### 6. Undefined
 Not to be confused with null, the meaning of `undefined` is “value is not assigned”.
 
-#### Symbols
-Symbols are new in the latest version of JavaScript (ES6). A symbol is a unique identifier whose value is its description. Two Symbols with the exact same description are not equal. Symbols are used when a completely unique value is needed. Sounds confusing? Well it bloody is and 
-  
+#### 7. Symbols
+Symbols are new in the latest version of JavaScript (ES6). A symbol is a unique identifier whose value is its description. Two Symbols with the exact same description are not equal. Symbols are used when a completely unique value is needed. 
+Sounds confusing? Well it bloody is and its a fairly advanced feature which we don't need to worry about right now.
 
--   Truthy/Falsey
--   Type coercion
+    Symbol(uniqueNewYork)
 
--   Variables
 
--   Let vs. Const. vs. Var
+### Variables and constants
 
--   Variable name is its name. It can be any string that is not a reserved word.
--   A variable or constant can be initialised with a value or with an undefined value like so: let newVariable;
+A variable or constant consists of an identifier (to the left of the equals sign) and a value (to the right of the equals sign). Its value can be a primitive data type, an array, an object or a function. A variable or constant can be initialised with a value or with an undefined value.
 
--   Operators
--   Functions
+    var newVar = "Hello, World!";
+    var otherNewVar; //Initialised with an undefined value
+    
+#### Let vs. Const. vs. Var
+Pre ES6, we declared variables with the `var` keyword. With `var` we can set a variable to have some value then either manipulate it's value or assign it a new value.
 
--   Scope and the ‘this’ keyword
+    var greeting = "Hey there bucko";
+    var greeting = "What's up dawg?";
+    console.log(greeting);
+    > "What's up dawg?"
 
--   Conditionals
--   Loops
--   Math
--   Methods
+ES6 introduced two new ways of declaring variables which have mostly replaced `var`. These are `const` and `let`. The keyword `const` initialises a constant, which, like a variable, is able to store the same kinds of information. However, unlike a variable, its value cannot be changed. In programming we say it is *immutable*. 
 
--   String
--   Array
--   Object
+    const hey = 'ya';
+    const hey = 'there';
+    > Uncaught SyntaxError: Identifier 'hey' has already been declared
 
--   Events
--   DOM manipulation
+For now, we can safely assume `let` is the same as `var`. There is only a small difference in how it is *scoped*, a concept which we will explore in the section on functions. 
+
+
+
+
+
+
+    
+#### Truthy/falsey and Type coercion
+
+### Operators
+
+
+### Functions
+
+####  Scope and the ‘this’ keyword
+
+### Conditionals
+
+### Loops
+
+### Math
+
+### Methods
+#### String
+#### Array
+#### Object
+
+### Events
+
+### DOM manipulation
