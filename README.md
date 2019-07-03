@@ -20,7 +20,7 @@ A string is a sequence of characters. A string literal is a sequence surrounded 
 
 A string literal can also be so-called template literals (introduced into JS in ES6) by using backticks.
 
-    `Template literal example`
+    `Literally a template literal example`
 
 ### 2. Numbers
 
