@@ -3,7 +3,21 @@
 
 I've created this document to bring together what I believe to be the most important concepts for developing a foundational knowledge of JavaScript. It is not an exhaustive guide but is reasonably detailed. Initially you can use this to gain a high level understanding of JavaScript, then come back to it as a point of reference as you encounter JS in the wild.
 
-So let's dig in.
+Examples in this guide look like this:
+
+    let x = "Wassap";
+    console.log(x);
+    > Wassap
+
+The grey area is a block of code.
+
+`console.log()` is an in-built JavaScript function that prints the return value of the code to the JavaScript console. A console is an environment/program that can run JavaScript. You can see a console either here on [JS Bin](https://jsbin.com/?js,console) or in the developer tools of your browser.
+
+The `>` sign is used to denote a line showing the return value of a function. 
+
+Got it? Great!
+
+Let's dig in.
 
 ## What is JavaScript?
 JavaScript is a programming language that can run both in a browser and (more recently) on a server. It was written to run in the Netscape browser in 1995. JavaScript can update and change our HTML and CSS, calculate and manipulate data and request and receive data from servers or other websites. 
@@ -93,7 +107,7 @@ As we saw before, we can assign a variable a value by using the `=` operator. Th
 
 
 ### Comparison
-Comparison operators compare two values and returns a boolean. JavaScript has two types of equals comparisons, equal and strict equal. Equals checks to see if the values are the same, irrespective of their types while strict equals compares value and type.
+Comparison operators compare two values and returns a boolean. JavaScript has two types of equals comparisons, equal `==` and strict equal `===` (threequal). Equals checks to see if the values are the same, irrespective of their types while strict equals compares value and type.
 
     10 === '10'
     > false
@@ -126,20 +140,64 @@ We can also compare two values using the greater than `>` and less than `<` oper
 
 ### Arithmetic 
 
-### Logical
+In JavaScript we can perform arithmetic on numbers just like we would with a calculator. These include:
 
+- Addition `+`
+- Subtraction `-`
+- Multiplication `*`
+- Exponents `**`
+- Division `/`
+
+Another important operator that is common in many programming languages is modulus. Modulus gives us the remainder of the divison of two numbers.
+
+    const x = 17;
+    const y = 5;
+    console.log(x%y);
+    > 2
+
+We can also use increment `++` and decrement `--` to increase or decrease a number by 1.
+
+    const x = 3;
+    console.log(x++);
+    > 4
     
+
+### Logical
+The logical operators are logical "OR" `||` , "AND" `&&` and "NOT" `!`. We have seen how NOT works with the comparison operators (`!==`) but AND and OR are new. We often use logical operators to determine all things or at least one thing fulfil a certain requirement. 
+
+The AND operator needs all of the values to be true in order to return true
+
+    console.log(true && false);
+    > false
+    console.log(true && true);
+    > true
+
+The OR operator needs at LEAST ONE value to be true in order to return true.
+
+    console.log(true || false);
+    > true
+    console.log(false || false);
+    > false
+Don't worry if this concept feels a bit abstract at the moment. You will see how this becomes useful when we start to look into Conditionals (if statements).
+
+## Functions
+
+### Named functions
+
+### Anonymous functions
+
+###  Scope and the ‘this’ keyword
+
+## Conditionals
+
+
 ## Truthy and falsey  
+I think this point is a good time to step back from the syntax of JavaScript, and take a look into one of its quirks. If you've been following along in a JavaScript console you might have noticed 
 
 
 ## Type coercion
 
 
-## Functions
-
-###  Scope and the ‘this’ keyword
-
-## Conditionals
 
 ## Loops
 
