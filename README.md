@@ -1,9 +1,11 @@
 
 # Javascript Foundations
 
-I've created this guide to bring together what I believe to be the most important concepts for developing a foundational knowledge of JavaScript. It is not a exhaustive but is reasonably detailed. Initially you can use this to gain a high level understanding of JavaScript, then come back to it as a point of reference as you encounter JS in the wild.
+I've created this guide to bring together what I believe to be the most important concepts for developing a foundational knowledge of JavaScript. It is not an exhaustive guide but is reasonably detailed. Initially you can use this to gain a high level understanding of JavaScript, then come back to it as a point of reference as you encounter JS in the wild. Please don't try and memorise everything in this guide. It's important for now that you just have a passing familiarity with the concepts here, to provided a foundation upon which you can build your own understanding of JavaScript.
 
-Examples will look like this:
+I've written this with the assumption that you have some knowledge of HTML and CSS.
+
+In this guide, code examples will look like this:
 
     // Here is some code
     let x = "Wassap";
@@ -14,7 +16,7 @@ The grey area is a block of code.
 
 The `//` is how we add comments to our code in JavaScript. Comments are not run with the rest of the code and only act as notes to ourselves and other people that read our code. 
 
-`console.log()` is an in-built JavaScript function that prints the return value of the code to the JavaScript console. A console is an environment/program that can run JavaScript. You can see a console either here on [JS Bin](https://jsbin.com/?js,console) or in the developer tools of your browser.
+`console.log()` is a in-built JavaScript function that prints the return value of the code to the JavaScript console. A console is an environment/program that can run JavaScript. You can see a console either here on [JS Bin](https://jsbin.com/?js,console) or in the developer tools of your browser. Have a play with the console and try using `console.log()` yourself. 
 
 The `>` sign is used to denote a line showing the return value of a function. 
 
@@ -53,6 +55,8 @@ Numbers can only get us so far. The largest number that JavaScript can reliably 
 A BigInt is created by adding an 'n' to the end of the integer.
 
     > 8923494n
+
+We generally don't use JavaScript to create programs that handle large numbers. Python is a language that is better suited to this. 
 
 ### 4. Booleans
 A boolean represents a value of `true` or `false`.
@@ -240,15 +244,62 @@ Scope determines the namespace of a variable, determining whether or not it is v
 
 As said before, this is a very important feature, especially for large applications as it prevent variables from colliding and causing bugs in our code. 
 
+## Data structures
+
+How's it going? Are you having fun? Probably not because this has been pretty dry so far. Again, don't feel like you have to memorise everything here or even understand it 100%. The more you are exposed to these concepts the more they will make sense and solidify in your mind. 
+
+What I want to talk about next is some of the most important stuff in this guide. This is the concept of Arrays and Objects.
+
+So far we have only used variables to store individual values, one at a time. But what if we want to store many values in one variable? Well it's at this point where we can reach for Arrays and Objects.
+
+### Arrays
+An array is a list of data with some special properties and methods (functions) we can use on them. We can add elements to arrays, remove elements, iterate over them to access each value and do a bunch of other stuff. This is all in the name of making our data easy to access and manipulate.
+
+An array looks like this:
+
+    let shoppingList = ["Apples", "Pasta", "Milk", "Bread"];
+
+The values in an array can be any data type, a function, variable, object or even other arrays. To access a specific value of an array we can use its index. An index is just a number assigned to an element of an array. These numbers are in order and start at zero. 
+
+    let arrayExample = ["dingo", 18, ["cat", "trolley"]];
+
+	console.log(arrayExample[0]);
+    > "dingo"
+    
+	console.log(arrayExample[1]);
+    > 18
+    
+	console.log(arrayExample[2]);
+    > ["cat", "trolley"]
+
+We can update the value of an element in an array using its index too.
+
+    let cars = ["Volvo", "Saab"];
+	console.log(cars);
+	> ["Volvo", "Saab"];
+	
+	cars[0] = "Honda";
+	console.log(cars);
+	> ["Honda", "Saab"];
+
+Arrays also have built in properties that we can access. The most common property that we would want to access is the `length` property. Accessing the length property of the array returns the number of elements that are contained in the array as an integer.
+
+    let cars = ["Volvo", "Saab"];
+	console.log(cars.length);
+	> 2
+
+### Objects
+
+
 
 ## Conditionals
 Conditionals are also foundational to almost all programming languages. A conditional is essentially a rule that we set that we want the program to follow. The most common conditional 
 
-## Truthy and falsey  
+### Truthy and falsey  
 I think this point is a good time to step back from the syntax of JavaScript, and take a look into one of its quirks. If you've been following along in a JavaScript console you might have noticed 
 
 
-## Type coercion
+### Type coercion
 
 
 
