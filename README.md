@@ -282,14 +282,56 @@ We can update the value of an element in an array using its index too.
 	console.log(cars);
 	> ["Honda", "Saab"];
 
+We can even add a new element but defining a new index.
+
+	let cars = ["Volvo", "Saab"];
+	cars[2] = "Lexus";
+	console.log(cars);
+	> ["Honda", "Saab", "Lexus"];
+
 Arrays also have built in properties that we can access. The most common property that we would want to access is the `length` property. Accessing the length property of the array returns the number of elements that are contained in the array as an integer.
 
     let cars = ["Volvo", "Saab"];
 	console.log(cars.length);
 	> 2
 
-### Objects
+I mentioned at the start of this section that arrays also have some special methods (functions) we can use on them. We will come back to this after we've covered objects and looping. 
 
+### Objects
+Objects are the most important data type in JavaScript. They are defined by a set of key/value pairs surrounded by curly brackets. 
+
+    let car = {
+	    brand: "Honda",
+	    color: "Red",
+	    doors: 4
+	};
+
+Unlike arrays, we can access values within an object using the key associated with a specific value.
+
+    let car = {
+	    brand: "Toyota",
+	    color: "Blue",
+	    doors: 4
+	};
+
+    console.log(car['brand']);
+    > Toyota
+    console.log(car.brand);
+    > Toyota
+
+Notice how we can access the value "Toyota" either by using `car['brand']` or `car.brand`. Either way is all good, and we can use the first method if, say, we want to pass the key as a variable.
+
+    let car = {
+	    brand: "Toyota",
+	    color: "Blue",
+	    doors: 4
+	};
+	const selectedFeature = "color";
+	console.log(car[selectedFeature]);
+	> Blue
+
+
+Objects are the most important concept in JavaScript. It is the basis upon which JavaScript is built. You may have heard JavaScript referred to as an object-oriented programming language. That's because EVERYTHING in JavaScript is an object. 
 
 
 ## Conditionals
@@ -304,6 +346,12 @@ I think this point is a good time to step back from the syntax of JavaScript, an
 
 
 ## Loops
+
+### For loop
+
+### While loop
+
+### For Each
 
 ## Math
 
