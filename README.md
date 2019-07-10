@@ -298,7 +298,7 @@ Arrays also have built in properties that we can access. The most common propert
 I mentioned at the start of this section that arrays also have some special methods (functions) we can use on them. We will come back to this after we've covered objects and looping. 
 
 ### Objects
-Objects are the most important data type in JavaScript. They are defined by a set of key/value pairs surrounded by curly brackets. 
+Objects are the most important data type in JavaScript. They are defined by a set of key/value pairs surrounded by curly brackets. These key/value pairs are properties of the object. The keys of the properties can be strings or integers. The values in an object can be any data type, a function, variable, arrays or even other objects.
 
     let car = {
 	    brand: "Honda",
@@ -319,7 +319,7 @@ Unlike arrays, we can access values within an object using the key associated wi
     console.log(car.brand);
     > Toyota
 
-Notice how we can access the value "Toyota" either by using `car['brand']` or `car.brand`. Either way is all good, and we can use the first method if, say, we want to pass the key as a variable.
+Notice how we can access the value "Toyota" either by using `car['brand']` or `car.brand`. Either way is all good, but we can use the first method if, say, we want to pass the key as a variable.
 
     let car = {
 	    brand: "Toyota",
@@ -333,12 +333,107 @@ Notice how we can access the value "Toyota" either by using `car['brand']` or `c
 
 Objects are the most important concept in JavaScript. It is the basis upon which JavaScript is built. You may have heard JavaScript referred to as an object-oriented programming language. That's because EVERYTHING in JavaScript is an object. 
 
+Ummmm, Ibegyafuckinpardon?!?
+
+Yup. Strings? Objects. Numbers? Objects. Even Arrays? Yup, objects. 
+
+Don't worry about this bit right now, it will become clearer as we explore other faucets of JavaScript. 
+
+### Object Methods
+
+As mentioned earlier, objects can contain many types of properties. This includes functions. When a function is a property of an object we call it a *method*. We can declare and call a method on an object like this:
+
+    let person = {  
+	    firstName: "John",  
+	    lastName : "Doe",  
+	    id : 5566,  
+	    fullName : function() {  
+		    return  this.firstName + " " + this.lastName;  
+	    }  
+    };
+    person.fullName();
+    > "John Doe";
+
+### The 'this' keyword
+
+Hold up there cowboy, what was that 'this' shit you just threw into the last example. The 'this' keyword refers to an object, the object that is executing the current bit of JavaScript code. As we saw in the previous example, our function `fullName` needs to access the value of `firstName` and `lastName` from the object it's actually in. The 'this' refers to the `person` object, and as such we can access the values of the `person` object by calling `this.firstName` and `this.lastName`.
+
+In JavaScript we say that `this` is a property of the *execution context*. The execution context is whatever bit of code is running at the time.
 
 ## Conditionals
-Conditionals are also foundational to almost all programming languages. A conditional is essentially a rule that we set that we want the program to follow. The most common conditional 
+Conditionals are also foundational to almost all programming languages. A conditional is a function that is built into JavaScript that we use to create a rule we want the program to follow. The most common conditional is the `if()` statement.
+
+    let numberOfApples = 1;
+    
+    if (numberOfApples === 1) {
+	    console.log('Eat the apple');
+	}
+	
+	> Eat the apple
+	
+The statement in the round brackets after the `if` is called the condition. If the condition evaluates to true, then the code within the curly brackets is run. In this case, the condition is `if (1 === 1) `, because the `numberOfApples` variable is set to 1. As we know, 1 is equal to 1, so the condition evaluates to true, and the `console.log('Eat the apple');` is run. 
+
+In JavaScript, we have three types of conditionals. These are `if()`, `else if()` and `else()`.
+    
+    
+    let numberOfApples = 9;
+    
+    if (numberOfApples < 2) {
+	    console.log('Eat the apple');
+	} else if (numberOfApples <= 6) {
+	    console.log('Bake apple pie');
+	} else if (numberOfApples <= 8) {
+	    console.log('Bake apple pie');
+	} else {
+	    console.log('Make apple cider');
+	}
+	
+	> Make apple cider
+
+In the example above, we can see a block of conditionals. The first conditional is the if statement (which we've already seen).
+
+The second is `else if` which will run `console.log('Bake apple pie');` if the first `if` condition is false, and its own condition is true. This `if else` conditional would be `else if (9 <= 6)`, which evaluates to false, so it won't run. 
+
+Then we can see a second `else if()` statement. We can have as many `else if()` statements as we like in a block of conditionals. This `else if()` evaluates to `else if (9 <= 8)`, which is also false, so the code in its curly brackets isn't run.
+
+Finally, we have the else. This runs if everything else in the block has failed (which is the case for our example). As such, we see `Make apple cider` is logged to the console. Cheers!
+
 
 ### Truthy and falsey  
-I think this point is a good time to step back from the syntax of JavaScript, and take a look into one of its quirks. If you've been following along in a JavaScript console you might have noticed 
+I think this point is a good time to step back from the syntax of JavaScript, and take a look into one of its quirks. As well as a type (string, number etc.), every value in JavaScript also has an inherent boolean value (true or false). We can see this by running the following:
+
+    if ('hey') {
+	    console.log('Party on!');
+	}
+	> Party on! 
+
+In the example above, 'hey' evaluates to true. We say it is *truthy*. 
+
+The following values in JavaScript have a false boolean value or are *falsey*:
+
+-   `false`
+-   `0`  (zero)
+-   `''`  or  `""`  (empty string)
+-   `null`
+-   `undefined`
+-   `NaN`
+
+Everything else is truthy!
+
+So why is this even a thing? Well, it allows us to write [terse](https://www.google.com/search?q=terse&oq=terse&aqs=chrome..69i57j0l5.754j0j7&sourceid=chrome&ie=UTF-8) JavaScript. Take this example for an online store.
+
+	let itemsInStock = 0
+	
+	if(itemsInStock) {
+		console.log('Item is available');
+	} else {
+		console.log('Item is not available');
+	}
+	> Item is not available'
+
+The if statement takes the `itemsInStock` variable which has a value of 0. The conditional will then look like this `if(0)`. As we know, 0 is falsey, so the first condition evaluates to false and the `else` condition is run.
+
+Isn't that nice? In this example it saves us from writing out `if(itemsInStock === 0)`. Terse AF.
 
 
 ### Type coercion
